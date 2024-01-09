@@ -9,7 +9,12 @@
 
   outputs = { self, nixpkgs, ... }:
   let
-    lib = nixpkgs.lib;
+    lib      = nixpkgs.lib;
+    system   = "x86_64-linux";
+    hostname = "nixos";
+    timezone = "Europe/Paris";
+    locale   = "fr_FR.UTF-8";
+    editor   = "nvim";
   in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
