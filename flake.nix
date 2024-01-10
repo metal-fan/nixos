@@ -17,9 +17,13 @@
     editor   = "nvim";
   in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration.nix ]; 
+      minimal = lib.nixosSystem {
+          inherit system;
+          modules = [ ./templates/minimal/ ];
+      };
+      desktop = lib.nixosSystem {
+          inherit system;
+          modules = [ ./templates/desktop/ ];
       };
     };
 
